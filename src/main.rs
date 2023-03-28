@@ -291,7 +291,7 @@ async fn fetch_user_alert_requests(
 
 #[get("/fetch_asset_prices")]
 async fn fetch_asset_prices() -> impl Responder {
-    let query = "SELECT * FROM asset_prices";
+    let query = "SELECT * FROM asset_prices order by asset_id";
     let mut db_client = Client::connect(
         "host=localhost user=postgres  password=postgres dbname=postgres",
         NoTls,
